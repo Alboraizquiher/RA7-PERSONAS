@@ -5,6 +5,7 @@
 package personas;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
@@ -16,22 +17,20 @@ public class cliente extends Personas{
     private Date fechaRegistro;
     private boolean vip;
 
-    public cliente(int idCliente, Date fechaRegistro, boolean vip, int idPersona, String nombre, char genero, int edad, String direccion) {
+    public cliente(int idCliente, Date fechaRegistro, boolean vip, int idPersona, String nombre, String genero, int edad, String direccion) {
         super(idPersona, nombre, genero, edad, direccion);
         this.idCliente = idCliente;
         this.fechaRegistro = fechaRegistro;
         this.vip = vip;
+        
     }
 
+  
+
+  
    
 
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
+  
 
     public Date getFechaRegistro() {
         return fechaRegistro;

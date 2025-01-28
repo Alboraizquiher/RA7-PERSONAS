@@ -13,7 +13,7 @@ public class Empleado extends Personas{
     private int idEmpleado;
     private double sueldo;
 
-    public Empleado(int idEmpleado, double sueldo, int idPersona, String nombre, char genero, int edad, String direccion) {
+    public Empleado(int idEmpleado, double sueldo, int idPersona, String nombre, String genero, int edad, String direccion) {
         super(idPersona, nombre, genero, edad, direccion);
         this.idEmpleado = idEmpleado;
         this.sueldo = sueldo;

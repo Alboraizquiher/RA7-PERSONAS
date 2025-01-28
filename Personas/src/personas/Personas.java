@@ -12,11 +12,11 @@ public class Personas {
     
     private int idPersona;
     private String nombre;
-    private char genero;
+    private String genero;
     private int edad;
     private String direccion;
 
-    public Personas(int idPersona, String nombre, char genero, int edad, String direccion) {
+    public Personas(int idPersona, String nombre, String genero, int edad, String direccion) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.genero = genero;
@@ -40,13 +40,15 @@ public class Personas {
         this.nombre = nombre;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
+
+ 
 
     public int getEdad() {
         return edad;
