@@ -4,14 +4,12 @@
  */
 package vista;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import personas.Empleado;
 import personas.Personas;
 import personas.cliente;
-
 
 /**
  *
@@ -30,20 +28,32 @@ import personas.cliente;
  */
 public class Inicio {
 
+    /*
+    ID CONTADOR
+    I create differents id to coordinate the id about employees,customers and people.
+    The last one have the information of the employees and the customers
+    You can repeat, for example, the same id in customers(1) = employees(1), but in int person the id is never repeated:
+    person(1->customer),person(2->employee) 
+    */
+    int idEmpleado = 1;
+    int idPersona = 1;
+    int idCliente = 1;
+
     Scanner sc = new Scanner(System.in);
-    /*I create this private arraylist to save in there the differrents class that i have in 
-    the project*/
+    
+    /*  I create this private arraylist to save in there the differrents class that I have in 
+        the project*/
 
     private ArrayList<cliente> customers;
     private ArrayList<Empleado> employee;
-    private ArrayList<Personas> people;
 
     public Inicio() {
 
-        /*Then i create the method Inicio to save in there the arrays that I create*/
+    /*  Then i create the method INICIO to save in there the arrays that I create*/
+    
         customers = new ArrayList<>();
         employee = new ArrayList<>();
-        people = new ArrayList<>();
+
     }
 
     public static void main(String[] args) {
@@ -53,6 +63,7 @@ public class Inicio {
         Scanner sc = new Scanner(System.in);
 
         /*The menu has create following the sentence of the project*/
+        
         System.out.println("<< OPTIONS MENU >>");
         System.out.println("<< 1 -> REGISTER >>");
         System.out.println("<< 2 -> UNSUBSCRIBE >>");
@@ -119,104 +130,89 @@ public class Inicio {
         System.out.println(" Do you want to register: employee [0] or customer [1] ,if you dont want put [8] ");
 
         int toRegister = sc.nextInt();
-        do{
-        if (toRegister == 0 ) {
-            
-            System.out.println(" Perfect you select the option << EMPLOYEE >>");
-            
-            
+        do {
+            if (toRegister == 0) {
 
-            System.out.println("PLEASE ENTER THE EMPLOYEE THAT YOU WANT TO REGISTER");
-            
-        System.out.println("Introduce the IDEMPLOYEE ");
-        int idEmpleado = sc.nextInt();
+                System.out.println(" Perfect you select the option << EMPLOYEE >>");
 
-        System.out.println("Introduce the salary");
-        double sueldo = sc.nextDouble();
+                System.out.println("PLEASE ENTER THE EMPLOYEE THAT YOU WANT TO REGISTER");
 
-        System.out.println("Introduce the IDPERSON ");
-        int idPersona = sc.nextInt();
-        
-        System.out.println("Introduce the gender");
-        String genero = sc.nextLine();
-        
-        System.out.println("Introduce the age ");
-        int edad = sc.nextInt();
-        
-        System.out.println("Introduce the name ");
-        String nombre = sc.nextLine();
-        
-        System.out.println("Introduce the direction");
-        String direccion = sc.nextLine();
-        
-        
-        Empleado newEmployee = new Empleado(idEmpleado, sueldo, idPersona, nombre, genero, edad,direccion);
+                System.out.println("Introduce the IDEMPLOYEE ");
 
-        employee.add(newEmployee);
-        
+                System.out.println("Introduce the salary");
+                double sueldo = sc.nextDouble();
 
-        System.out.println("THE EMPLOYEE HAS BEEN REGISTERED SUCCESSFULLY.");
-               
+                System.out.println("Introduce the IDPERSON ");
+                int idPersona = sc.nextInt();
 
-        }else if(toRegister == 1){
-            
-        System.out.println(" Perfect you select the option << CUSTOMER >>");
-        
-        System.out.println(" the IDEMPLOYEE ");
-        
-        
+                System.out.println("Introduce the gender");
+                String genero = sc.nextLine();
 
-        System.out.println("Introduce the salary");
-        boolean vip = sc.nextBoolean();
+                System.out.println("Introduce the age ");
+                int edad = sc.nextInt();
 
-        System.out.println(" the data ");
-            System.out.println(" ");
-        
-        Date date = new Date();
-        
-        
-        System.out.println("Introduce the IDPERSON ");
-        int idPersona = sc.nextInt();
-        
-        System.out.println("Introduce the gender");
-        String genero = sc.nextLine();
-        
-        System.out.println("Introduce the age ");
-        int edad = sc.nextInt();
-        
-        System.out.println("Introduce the name ");
-        String nombre = sc.nextLine();
-        
-        System.out.println("Introduce the direction");
-        String direccion = sc.nextLine();
-        
-        
-        cliente newCustomer = new cliente(idCliente, date, vip, idPersona,  nombre,  genero,  edad, direccion);
+                System.out.println("Introduce the name ");
+                String nombre = sc.nextLine();
 
-        customers.add(newCustomer);
-            
-            
-        }
-        
-       
-           
-    }while(toRegister != 8);   
-        
-        
+                System.out.println("Introduce the direction");
+                String direccion = sc.nextLine();
 
-   
+                Empleado newEmployee = new Empleado(idEmpleado, sueldo, idPersona, nombre, genero, edad, direccion);
+
+                employee.add(newEmployee);
+                idEmpleado++;
+                idPersona++;
+
+                System.out.println("THE EMPLOYEE HAS BEEN REGISTERED SUCCESSFULLY.");
+
+            } else if (toRegister == 1) {
+
+                System.out.println(" Perfect you select the option << CUSTOMER >>");
+
+                System.out.println(" the IDEMPLOYEE ");
+
+                System.out.println("Introduce the salary");
+                boolean vip = sc.nextBoolean();
+
+                System.out.println(" the data ");
+                String Date  = sc.nextLine();
+
+                
+
+                System.out.println(" Tu idCliente es:" + idCliente);
+
+                System.out.println("Introduce the gender");
+                String genero = sc.nextLine();
+
+                System.out.println("Introduce the age ");
+                int edad = sc.nextInt();
+
+                System.out.println("Introduce the name ");
+                String nombre = sc.nextLine();
+
+                System.out.println("Introduce the direction");
+                String direccion = sc.nextLine();
+
+                cliente newCustomer = new cliente(idCliente, Date, vip, idPersona, nombre, genero, edad, direccion);
+
+                customers.add(newCustomer);
+                idCliente++;
+                idPersona++;
+
+            }
+
+        } while (toRegister != 8);
+
     }
 
     /**
      * DAR DE BAJA [1p] Esta opción le pedirá al usuario qué persona quiere dar
      * de baja, identificada por su ID, y posteriormente la borrará del
-     * ArrayList “personas”. 
+     * ArrayList “personas”.
      *
      */
     public void unsubscribe() {
-        
-        
-        
+
     }
 
     /* * MODIFICAR [1p]
